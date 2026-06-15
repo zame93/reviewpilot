@@ -148,17 +148,38 @@ function rate(rating){
 
     setTimeout(function(){
 
-        if(rating >= 4){
+        let formUrl = "";
 
-            window.location.href =
-            "https://share.google/vzGgHviaoZLhTGFOl";
+        switch(rating){
 
-        } else {
+            case 1:
+                formUrl =
+                "https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform?usp=pp_url&entry.1376820106=%E2%AD%90+Very+Poor";
+                break;
 
-            window.location.href =
-            "https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform";
+            case 2:
+                formUrl =
+                "https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform?usp=pp_url&entry.1376820106=%E2%AD%90%E2%AD%90+Poor";
+                break;
 
+            case 3:
+                formUrl =
+                "https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform?usp=pp_url&entry.1376820106=%E2%AD%90%E2%AD%90%E2%AD%90+Fair";
+                break;
+
+            case 4:
+                formUrl =
+                "https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform?usp=pp_url&entry.1376820106=%E2%AD%90%E2%AD%90%E2%AD%90%E2%AD%90+Good";
+                break;
+
+            case 5:
+
+                window.location.href =
+                "https://share.google/vzGgHviaoZLhTGFOl";
+                return;
         }
+
+        window.location.href = formUrl;
 
     },700);
 
