@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ReviewPilot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+padding:50px;
+}
+
+button{
+width:250px;
+padding:15px;
+margin:10px;
+font-size:18px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>How was your experience today?</h2>
+
+<button onclick="review()">⭐⭐⭐⭐⭐ Excellent</button><br>
+<button onclick="review()">⭐⭐⭐⭐ Good</button><br>
+
+<button onclick="feedback()">⭐⭐⭐ Average</button><br>
+<button onclick="feedback()">⭐⭐ Poor</button><br>
+<button onclick="feedback()">⭐ Very Poor</button>
+
+<script>
+
+function review() {
+window.location.href = "https://google.com";
+}
+
+function feedback() {
+window.location.href = "https://forms.google.com";
+}
+
+</script>
+
+</body>
+</html>
