@@ -1,47 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ReviewPilot</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-font-family:Arial;
-text-align:center;
-padding:50px;
+    font-family: Arial, sans-serif;
+    background:#f5f7fa;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
-button{
-width:250px;
-padding:15px;
-margin:10px;
-font-size:18px;
-cursor:pointer;
+.container{
+    background:white;
+    width:100%;
+    max-width:500px;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.tagline{
+    color:#666;
+    margin-bottom:30px;
+}
+
+h1{
+    color:#222;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#777;
+    margin-bottom:35px;
+}
+
+.stars{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.star{
+    font-size:42px;
+    cursor:pointer;
+    transition:0.2s;
+    user-select:none;
+}
+
+.star:hover{
+    transform:scale(1.15);
+}
+
+.note{
+    color:#999;
+    font-size:14px;
+    margin-top:25px;
+}
+
+.loading{
+    display:none;
+    margin-top:20px;
+    color:#444;
+    font-weight:bold;
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:30px 20px;
+    }
+
+    .star{
+        font-size:34px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+}
+
 </style>
-
 </head>
 
 <body>
 
-<h2>How was your experience today?</h2>
+<div class="container">
 
-<button onclick="review()">⭐⭐⭐⭐⭐ Excellent</button><br>
-<button onclick="review()">⭐⭐⭐⭐ Good</button><br>
+    <div class="logo">ReviewPilot</div>
 
-<button onclick="feedback()">⭐⭐⭐ Average</button><br>
-<button onclick="feedback()">⭐⭐ Poor</button><br>
-<button onclick="feedback()">⭐ Very Poor</button>
+    <div class="tagline">
+        Reputation Management Platform
+    </div>
+
+    <h1>How was your experience?</h1>
+
+    <div class="subtitle">
+        Tap a star to rate your visit
+    </div>
+
+    <div class="stars">
+
+        <span class="star" onclick="rate(1)">⭐</span>
+        <span class="star" onclick="rate(2)">⭐</span>
+        <span class="star" onclick="rate(3)">⭐</span>
+        <span class="star" onclick="rate(4)">⭐</span>
+        <span class="star" onclick="rate(5)">⭐</span>
+
+    </div>
+
+    <div id="loading" class="loading">
+        Thank you for your feedback...
+    </div>
+
+    <div class="note">
+        Your feedback helps us improve our service.
+    </div>
+
+</div>
 
 <script>
 
-function review() {
-window.location.href = "https://share.google/vzGgHviaoZLhTGFOl";
+function rate(rating){
+
+    document.getElementById("loading").style.display="block";
+
+    setTimeout(function(){
+
+        if(rating >= 4){
+
+            window.location.href =
+            "https://share.google/vzGgHviaoZLhTGFOl";
+
+        } else {
+
+            window.location.href =
+            "https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform";
+
+        }
+
+    },700);
+
 }
 
-function feedback() {
-window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform";
-}
 </script>
 
 </body>
