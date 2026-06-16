@@ -135,11 +135,15 @@ document
         "?event=" +
         encodeURIComponent("Review Button Clicked"),
         { mode:"no-cors" }
-    ).finally(() => {
+    );
 
-        window.location.href = reviewUrl;
+    window.open(reviewUrl, "_blank");
 
-    });
+    setTimeout(function(){
+
+        window.location.href = "reward.html";
+
+    }, 2000);
 
 });
 
