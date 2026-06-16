@@ -1,9 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reward Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claim Your Reward</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    max-width:450px;
+    width:90%;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+p{
+    color:#666;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    margin-bottom:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#28a745;
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#result{
+    margin-top:25px;
+}
+
+.coupon{
+    font-size:32px;
+    font-weight:bold;
+    color:#28a745;
+    margin-top:10px;
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Reward Page Working 🎉</h1>
+
+<div class="container">
+
+<h1>🎁 Claim Your Reward</h1>
+
+<p>Enter your details to unlock today's reward.</p>
+
+<input
+type="text"
+id="name"
+placeholder="Your Name">
+
+<input
+type="tel"
+id="mobile"
+placeholder="Mobile Number">
+
+<button onclick="claimReward()">
+Claim Reward
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const trackerUrl =
+"https://script.google.com/macros/s/AKfycbyA494V8WjwvOcpmBRXnPVz5CLw3Yl5FrjTYlCRWfLhjqu1ncVBc1DgezFHX9t6l4A/exec";
+
+function claimReward(){
+
+    const name =
+    document.getElementById("name").value.trim();
+
+    const mobile =
+    document.getElementById("mobile").value.trim();
+
+    if(!name){
+        alert("Please enter your name");
+        return;
+    }
+
+    if(!mobile){
+        alert("Please enter mobile number");
+        return;
+    }
+
+    fetch(
+        trackerUrl +
+        "?action=reward" +
+        "&name=" +
+        encodeURIComponent(name) +
+        "&mobile=" +
+        encodeURIComponent(mobile)
+    )
+    .then(response => response.text())
+    .then(coupon => {
+
+        document.getElementById("result").innerHTML =
+
+        "<h2>🎉 Reward Unlocked!</h2>" +
+        "<p>Your Coupon Code</p>" +
+        "<div class='coupon'>" +
+        coupon +
+        "</div>" +
+        "<p>Show this code on your next visit.</p>";
+
+    });
+
+}
+
+</script>
+
 </body>
 </html>
