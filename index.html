@@ -55,22 +55,36 @@ h1{
     margin-bottom:35px;
 }
 
-.stars{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    margin-bottom:20px;
-}
-
 .star{
-    font-size:42px;
+    font-size:52px;
     cursor:pointer;
-    transition:0.2s;
+    color:#d9d9d9;
+    transition:all .2s ease;
     user-select:none;
 }
 
-.star:hover{
+.star.active{
+    color:#FFD700;
     transform:scale(1.15);
+}
+
+.star:hover{
+    color:#FFD700;
+    transform:scale(1.15);
+}
+    .stars{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin:30px 0;
+}
+
+#ratingText{
+    height:24px;
+    margin-top:10px;
+    font-weight:bold;
+    color:#555;
+    text-align:center;
 }
 #ratingText{
     height:24px;
@@ -127,13 +141,15 @@ h1{
 
     <div class="stars">
 
-    <span class="star" data-rating="1" onclick="rate(1)">★</span>
-    <span class="star" data-rating="2" onclick="rate(2)">★</span>
-    <span class="star" data-rating="3" onclick="rate(3)">★</span>
-    <span class="star" data-rating="4" onclick="rate(4)">★</span>
-    <span class="star" data-rating="5" onclick="rate(5)">★</span>
+    <span class="star" onclick="rate(1)">★</span>
+    <span class="star" onclick="rate(2)">★</span>
+    <span class="star" onclick="rate(3)">★</span>
+    <span class="star" onclick="rate(4)">★</span>
+    <span class="star" onclick="rate(5)">★</span>
 
 </div>
+
+<div id="ratingText"></div>
 
 <div id="ratingText"></div>
 
