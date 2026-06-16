@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
+<title>Thank You</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fa;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    max-width:500px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#222;
+}
+
+p{
+    color:#666;
+    margin:20px 0;
+}
+
+.btn{
+    display:inline-block;
+    background:#4285F4;
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Thank You! 🎉</h1>
+
+<p>
+We're glad you had a great experience.
+Would you mind sharing it on Google?
+</p>
+
+<a
+id="reviewBtn"
+class="btn"
+href="#"
+>
+Leave a Google Review
+</a>
+
+</div>
+
+<script>
+
+const reviewUrl =
+"https://share.google/vzGgHviaoZLhTGFOl";
+
+const trackerUrl =
+"https://script.google.com/macros/s/AKfycbzjdUSXAQOlj0I-gre4DE1AxmCF9DkLcMzsk-UsonrjgQ8iwBP1e92p-dC2K4zgXD8/exec";
+
+document
+.getElementById("reviewBtn")
+.addEventListener("click",function(e){
+
+    e.preventDefault();
+
+    fetch(
+        trackerUrl +
+        "?rating=Review Button Clicked",
+        {mode:"no-cors"}
+    ).finally(()=>{
+
+        window.location.href = reviewUrl;
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
