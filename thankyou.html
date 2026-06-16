@@ -122,7 +122,7 @@ const reviewUrl =
 "https://share.google/vzGgHviaoZLhTGFOl";
 
 const trackerUrl =
-"https://script.google.com/macros/s/AKfycbzjdUSXAQOlj0I-gre4DE1AxmCF9DkLcMzsk-UsonrjgQ8iwBP1e92p-dC2K4zgXD8/exec";
+"https://script.google.com/macros/s/AKfycbxzceqUSFIaqyQA0vdoPO1DuVqvxywmm5pRILJgVvZ_x6Jmq-Cp5YxXd-BZN5p3bnY/exec";
 
 document
 .getElementById("reviewBtn")
@@ -133,8 +133,8 @@ document
     fetch(
         trackerUrl +
         "?event=" +
-encodeURIComponent("Review Button Clicked"),
-        {mode:"no-cors"}
+        encodeURIComponent("Review Button Clicked"),
+        { mode:"no-cors" }
     ).finally(() => {
 
         window.location.href = reviewUrl;
