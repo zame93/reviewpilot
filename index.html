@@ -72,7 +72,12 @@ h1{
 .star:hover{
     transform:scale(1.15);
 }
-
+#ratingText{
+    height:24px;
+    margin-top:10px;
+    font-weight:bold;
+    color:#555;
+}
 .note{
     color:#999;
     font-size:14px;
@@ -122,13 +127,15 @@ h1{
 
     <div class="stars">
 
-        <span class="star" onclick="rate(1)">⭐</span>
-        <span class="star" onclick="rate(2)">⭐</span>
-        <span class="star" onclick="rate(3)">⭐</span>
-        <span class="star" onclick="rate(4)">⭐</span>
-        <span class="star" onclick="rate(5)">⭐</span>
+    <span class="star" data-rating="1" onclick="rate(1)">★</span>
+    <span class="star" data-rating="2" onclick="rate(2)">★</span>
+    <span class="star" data-rating="3" onclick="rate(3)">★</span>
+    <span class="star" data-rating="4" onclick="rate(4)">★</span>
+    <span class="star" data-rating="5" onclick="rate(5)">★</span>
 
-    </div>
+</div>
+
+<div id="ratingText"></div>
 
     <div id="loading" class="loading">
     Redirecting...
@@ -158,7 +165,26 @@ const ratings = {
     5: "%E2%AD%90%E2%AD%90%E2%AD%90%E2%AD%90%E2%AD%90+Excellent"
 };
 
-function rate(rating){
+function rate(rating){document.querySelectorAll(".star").forEach((star,index)=>{
+
+    if(index < rating){
+        star.classList.add("active");
+    }else{
+        star.classList.remove("active");
+    }
+
+});
+
+const labels = {
+    1:"Very Poor",
+    2:"Poor",
+    3:"Fair",
+    4:"Good",
+    5:"Excellent"
+};
+
+document.getElementById("ratingText").innerText =
+labels[rating];
 
     document.getElementById("loading").style.display = "block";
 
