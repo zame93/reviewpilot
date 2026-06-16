@@ -166,24 +166,23 @@ function rate(rating){
 
         if(rating >= 4){
 
-            fetch(
-                trackerUrl +
-                "?rating=" +
-                encodeURIComponent(
-                    rating === 5
-                    ? "⭐⭐⭐⭐⭐ Excellent"
-                    : "⭐⭐⭐⭐ Good"
-                ),
-                { mode: "no-cors" }
-            ).finally(() => {
+    fetch(
+        trackerUrl +
+        "?rating=" +
+        encodeURIComponent(
+            rating === 5
+            ? "⭐⭐⭐⭐⭐ Excellent"
+            : "⭐⭐⭐⭐ Good"
+        ),
+        { mode: "no-cors" }
+    ).finally(() => {
 
-                window.location.href = reviewUrl;
+        window.location.href = "thankyou.html";
 
-            });
+    });
 
-            return;
-        }
-
+    return;
+}
         window.location.href = formBase + ratings[rating];
 
     },700);
