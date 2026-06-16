@@ -1,49 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Thank You</title>
+<title>ReviewPilot</title>
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     font-family:Arial,sans-serif;
     background:#f5f7fa;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
-    margin:0;
+    padding:20px;
 }
 
 .card{
     background:white;
-    padding:40px;
-    max-width:500px;
+    width:100%;
+    max-width:550px;
+    padding:50px 35px;
     text-align:center;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:42px;
+    margin-bottom:20px;
 }
 
 h1{
+    font-size:40px;
     color:#222;
+    margin-bottom:15px;
 }
 
-p{
-    color:#666;
-    margin:20px 0;
+.message{
+    color:#555;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:30px;
 }
 
-.btn{
+.stars{
+    font-size:42px;
+    margin-bottom:35px;
+    animation: glow 2s infinite;
+}
+
+.review-btn{
     display:inline-block;
     background:#4285F4;
     color:white;
     text-decoration:none;
-    padding:14px 24px;
-    border-radius:10px;
+    padding:16px 30px;
+    border-radius:12px;
+    font-size:18px;
     font-weight:bold;
+    transition:.2s;
+}
+
+.review-btn:hover{
+    transform:translateY(-2px);
+}
+
+.powered{
+    margin-top:30px;
+    color:#999;
+    font-size:14px;
+}
+
+@keyframes glow{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
 }
 
 </style>
@@ -53,20 +93,26 @@ p{
 
 <div class="card">
 
-<h1>Thank You! 🎉</h1>
+    <div class="logo">🎉</div>
 
-<p>
-We're glad you had a great experience.
-Would you mind sharing it on Google?
-</p>
+    <h1>Awesome!</h1>
 
-<a
-id="reviewBtn"
-class="btn"
-href="#"
->
-Leave a Google Review
-</a>
+    <div class="message">
+        We're thrilled you had a great experience.<br><br>
+        Your review helps other customers discover great businesses.
+    </div>
+
+    <div class="stars">
+        ⭐⭐⭐⭐⭐
+    </div>
+
+    <a href="#" id="reviewBtn" class="review-btn">
+        Leave a Google Review
+    </a>
+
+    <div class="powered">
+        Powered by ReviewPilot
+    </div>
 
 </div>
 
@@ -80,15 +126,16 @@ const trackerUrl =
 
 document
 .getElementById("reviewBtn")
-.addEventListener("click",function(e){
+.addEventListener("click", function(e){
 
     e.preventDefault();
 
     fetch(
         trackerUrl +
-        "?rating=Review Button Clicked",
+        "?rating=" +
+        encodeURIComponent("Review Button Clicked"),
         {mode:"no-cors"}
-    ).finally(()=>{
+    ).finally(() => {
 
         window.location.href = reviewUrl;
 
