@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>Verify Coupon</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    width:500px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+input{
+    width:100%;
+    padding:18px;
+    margin:15px 0;
+    font-size:22px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:18px;
+    font-size:22px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+#result{
+    margin-top:25px;
+    text-align:left;
+    font-size:20px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🔍 Verify Coupon</h1>
+
+<input
+id="coupon"
+placeholder="Enter Coupon Code">
+
+<button onclick="verifyCoupon()">
+Verify Coupon
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const trackerUrl =
+"https://script.google.com/macros/s/AKfycbxbP8KXs5asASmq76L9Gs2mo3u1JOhQo4KEIocwIJR1Fj5xpfqkMwXmC3DJg9xmSw8/exec";
+
+function verifyCoupon(){
+
+    const coupon =
+        document.getElementById("coupon")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if(!coupon){
+        alert("Enter coupon");
+        return;
+    }
+
+    fetch(
+        trackerUrl +
+        "?action=verify&coupon=" +
+        encodeURIComponent(coupon)
+    )
+    .then(response => response.text())
+    .then(result => {
+
+        document.getElementById("result").innerHTML =
+            result;
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
