@@ -135,16 +135,26 @@ if(!/^[0-9]{10}$/.test(mobile)){
     .then(response => response.text())
     .then(coupon => {
 
-        document.getElementById("result").innerHTML =
+    document.getElementById("name").style.display = "none";
+    document.getElementById("mobile").style.display = "none";
 
+    document.querySelector("button").style.display = "none";
+ const expiryText =
+new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
+.toLocaleDateString();       
+    document.getElementById("result").innerHTML =
         "<h2>🎉 Reward Unlocked!</h2>" +
+        "<p><strong>Reward:</strong> Free Dessert</p>" +
+        "<p><strong>Valid Until:</strong> " +
+         expiryText +
+        "</p>" +
         "<p>Your Coupon Code</p>" +
         "<div class='coupon'>" +
         coupon +
         "</div>" +
         "<p>Show this code on your next visit.</p>";
 
-    });
+});
 
 }
 
