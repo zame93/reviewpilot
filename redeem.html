@@ -103,27 +103,32 @@ function redeemCoupon(){
     .then(response => response.text())
     .then(result => {
 
-        if(result === "SUCCESS"){
+if(result === "SUCCESS"){
 
-            document.getElementById("result").innerHTML =
-                "<h2>✅ Coupon Redeemed</h2>";
+    document.getElementById("result").innerHTML =
+        "<h2>✅ Coupon Redeemed</h2>";
 
-        }
-        else if(result === "ALREADY_USED"){
+}
+else if(result === "EXPIRED"){
 
-            document.getElementById("result").innerHTML =
-                "<h2>⚠️ Coupon Already Used</h2>";
+    document.getElementById("result").innerHTML =
+        "<h2>❌ Coupon Expired</h2>";
 
-        }
-        else{
+}
+else if(result === "ALREADY_USED"){
 
-            document.getElementById("result").innerHTML =
-                "<h2>❌ Coupon Not Found</h2>";
+    document.getElementById("result").innerHTML =
+        "<h2>⚠️ Coupon Already Used</h2>";
 
-        }
+}
+else{
 
-    });
+    document.getElementById("result").innerHTML =
+        "<h2>❌ Coupon Not Found</h2>";
 
+}
+
+});
 }
 
 </script>
