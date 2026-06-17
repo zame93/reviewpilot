@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redeem Coupon</title>
 
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    width:90%;
+    max-width:450px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin:15px 0;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:18px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#22c55e;
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+#result{
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎟️ Redeem Coupon</h1>
+
+<input
+id="coupon"
+placeholder="Enter Coupon Code">
+
+<button onclick="redeemCoupon()">
+Redeem
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const trackerUrl =
+"https://script.google.com/macros/s/AKfycbxbP8KXs5asASmq76L9Gs2mo3u1JOhQo4KEIocwIJR1Fj5xpfqkMwXmC3DJg9xmSw8/exec";
+
+function redeemCoupon(){
+
+    const coupon =
+        document.getElementById("coupon")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if(!coupon){
+        alert("Please enter a coupon code");
+        return;
+    }
+
+    fetch(
+        trackerUrl +
+        "?action=redeem&coupon=" +
+        encodeURIComponent(coupon)
+    )
+    .then(response => response.text())
+    .then(result => {
+
+        if(result === "SUCCESS"){
+
+            document.getElementById("result").innerHTML =
+                "<h2>✅ Coupon Redeemed</h2>";
+
+        }
+        else if(result === "ALREADY_USED"){
+
+            document.getElementById("result").innerHTML =
+                "<h2>⚠️ Coupon Already Used</h2>";
+
+        }
+        else{
+
+            document.getElementById("result").innerHTML =
+                "<h2>❌ Coupon Not Found</h2>";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
