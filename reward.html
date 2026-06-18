@@ -246,31 +246,31 @@ new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
 .toLocaleDateString();       
     document.getElementById("result").innerHTML =
 
-    "<h2>🎉 Thank You!</h2>" +
+    "<div class='ticket-top'>" +
+    "<h2>🎉 THANK YOU REWARD</h2>" +
+"</div>" +
 
-    "<p>Your reward has been unlocked.</p>" +
+"<div class='ticket-body'>" +
 
-    "<div class='ticket'>" +
+    "<p class='ticket-label'>Reward</p>" +
 
-        "<div class='ticket-top'>" +
-            "<h2>🎁 FREE DESSERT</h2>" +
-        "</div>" +
+    "<p style='font-size:24px;font-weight:700;color:#1E293B;margin-bottom:20px;'>" +
+        "FREE DESSERT" +
+    "</p>" +
 
-        "<div class='ticket-body'>" +
+    "<p class='ticket-label'>Coupon Code</p>" +
 
-            "<p class='ticket-label'>Coupon Code</p>" +
+    "<div class='coupon'>" +
+        coupon +
+    "</div>" +
 
-            "<div class='coupon'>" +
-                coupon +
-            "</div>" +
+    "<p class='ticket-label'>Expires On</p>" +
 
-            "<p class='ticket-label'>Valid Until</p>" +
+    "<p class='expiry-date'>" +
+        expiryText +
+    "</p>" +
 
-            "<p class='expiry-date'>" +
-                expiryText +
-            "</p>" +
-
-        "</div>" +
+"</div>" +
 
         "<div class='ticket-footer'>" +
             "❤️ Powered by LoveView" +
