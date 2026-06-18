@@ -8,8 +8,8 @@
 <style>
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f4f6f9;
+    font-family:Inter, Arial, sans-serif;
+    background:#FFF8F5;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -20,15 +20,35 @@ body{
 .container{
     background:white;
     padding:40px;
-    border-radius:20px;
-    max-width:450px;
+    border-radius:24px;
+    max-width:500px;
     width:90%;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.brand{
+    font-size:28px;
+    font-weight:700;
+    color:#E91E63;
+    margin-bottom:10px;
+}
+
+.tagline{
+    color:#888;
+    font-size:14px;
+    margin-bottom:25px;
 }
 
 h1{
+    color:#1E293B;
     margin-bottom:10px;
+}
+
+.subtitle{
+    color:#666;
+    line-height:1.6;
+    margin-bottom:25px;
 }
 
 p{
@@ -41,35 +61,86 @@ input{
     margin-top:12px;
     margin-bottom:12px;
     border:1px solid #ddd;
-    border-radius:10px;
+    border-radius:12px;
     font-size:16px;
     box-sizing:border-box;
 }
 
+input:focus{
+    outline:none;
+    border-color:#E91E63;
+}
+
 button{
     width:100%;
-    padding:14px;
+    padding:15px;
     border:none;
-    background:#28a745;
+    background:#E91E63;
     color:white;
     font-size:18px;
-    border-radius:10px;
+    border-radius:12px;
     cursor:pointer;
+    font-weight:600;
 }
 
 button:hover{
-    opacity:0.9;
+    opacity:0.95;
 }
 
 #result{
     margin-top:25px;
 }
 
+.ticket{
+    margin-top:25px;
+    background:white;
+    border:2px dashed #E91E63;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.ticket-top{
+    background:#E91E63;
+    color:white;
+    padding:18px;
+}
+
+.ticket-top h2{
+    margin:0;
+    font-size:24px;
+}
+
+.ticket-body{
+    padding:25px;
+}
+
+.ticket-label{
+    color:#888;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
 .coupon{
-    font-size:32px;
-    font-weight:bold;
-    color:#28a745;
-    margin-top:10px;
+    font-size:36px;
+    font-weight:700;
+    color:#E91E63;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.expiry-date{
+    font-size:18px;
+    font-weight:600;
+    color:#1E293B;
+}
+
+.ticket-footer{
+    border-top:2px dashed #ddd;
+    padding:15px;
+    background:#FFF8F5;
+    color:#E91E63;
+    font-weight:600;
 }
 
 </style>
@@ -79,9 +150,20 @@ button:hover{
 
 <div class="container">
 
-<h1>🎁 Claim Your Reward</h1>
+<div class="brand">
+❤️ LoveView
+</div>
 
-<p>Enter your details to unlock today's reward.</p>
+<div class="tagline">
+Reviews. Rewards. Relationships.
+</div>
+
+<h1>🎁 Your Thank You Gift</h1>
+
+<p class="subtitle">
+Thank you for sharing your experience.
+Unlock your reward below.
+</p>
 
 <input
 type="text"
@@ -94,7 +176,7 @@ id="mobile"
 placeholder="Mobile Number">
 
 <button onclick="claimReward()">
-Claim Reward
+🎉 Unlock My Gift
 </button>
 
 <div id="result"></div>
@@ -143,16 +225,40 @@ if(!/^[0-9]{10}$/.test(mobile)){
 new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
 .toLocaleDateString();       
     document.getElementById("result").innerHTML =
-        "<h2>🎉 Reward Unlocked!</h2>" +
-        "<p><strong>Reward:</strong> Free Dessert</p>" +
-        "<p><strong>Valid Until:</strong> " +
-         expiryText +
-        "</p>" +
-        "<p>Your Coupon Code</p>" +
-        "<div class='coupon'>" +
-        coupon +
+
+    "<h2>🎉 Thank You!</h2>" +
+
+    "<p>Your reward has been unlocked.</p>" +
+
+    "<div class='ticket'>" +
+
+        "<div class='ticket-top'>" +
+            "<h2>🎁 FREE DESSERT</h2>" +
         "</div>" +
-        "<p>Show this code on your next visit.</p>";
+
+        "<div class='ticket-body'>" +
+
+            "<p class='ticket-label'>Coupon Code</p>" +
+
+            "<div class='coupon'>" +
+                coupon +
+            "</div>" +
+
+            "<p class='ticket-label'>Valid Until</p>" +
+
+            "<p class='expiry-date'>" +
+                expiryText +
+            "</p>" +
+
+        "</div>" +
+
+        "<div class='ticket-footer'>" +
+            "❤️ Powered by LoveView" +
+        "</div>" +
+
+    "</div>" +
+
+    "<p style='margin-top:15px;'>Show this code on your next visit.</p>";
 
 });
 
