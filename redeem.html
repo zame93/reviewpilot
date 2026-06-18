@@ -6,6 +6,18 @@
 <title>Redeem Coupon</title>
 
 <style>
+    .logo{
+    font-size:28px;
+    font-weight:700;
+    color:#E91E63;
+    margin-bottom:15px;
+}
+
+.tagline{
+    color:#64748B;
+    font-size:16px;
+    margin-bottom:35px;
+}
 
 body{
     font-family:Arial,sans-serif;
@@ -62,15 +74,20 @@ button:hover{
 <body>
 
 <div class="card">
+    <div class="logo">❤️ LoveView</div>
 
-<h1>🎟️ Redeem Coupon</h1>
+<div class="tagline">
+    Reviews. Rewards. Relationships.
+</div>
+
+<h1>🎟️ Redeem LoveBack</h1>
 
 <input
 id="coupon"
-placeholder="Enter Coupon Code">
+placeholder="Enter LoveBack Code">
 
 <button onclick="redeemCoupon()">
-Redeem
+Redeem LoveBack
 </button>
 
 <div id="result"></div>
@@ -106,25 +123,25 @@ function redeemCoupon(){
 if(result === "SUCCESS"){
 
     document.getElementById("result").innerHTML =
-        "<h2>✅ Coupon Redeemed</h2>";
+        "<h2>✅ LoveBack Redeemed</h2>";
 
 }
 else if(result === "EXPIRED"){
 
     document.getElementById("result").innerHTML =
-        "<h2>❌ Coupon Expired</h2>";
+        "<h2>❌ LoveBack Expired</h2>";
 
 }
 else if(result === "ALREADY_USED"){
 
     document.getElementById("result").innerHTML =
-        "<h2>⚠️ Coupon Already Used</h2>";
+        "<h2>⚠️ LoveBack Already Redeemed</h2>";
 
 }
 else{
 
     document.getElementById("result").innerHTML =
-        "<h2>❌ Coupon Not Found</h2>";
+        "<h2>❌ LoveBack Not Found</h2>";
 
 }
 
