@@ -28,20 +28,28 @@ const params = new URLSearchParams(window.location.search);
 const rating = params.get("rating");
 
 async function submitFeedback() {
-  const issue =
-  document.getElementById("issue").value;
 
-const comments =
-  document.getElementById("comments").value;
+    const issue =
+        document.getElementById("issue").value;
 
-const mobile =
-  document.getElementById("mobile").value;
+    const comments =
+        document.getElementById("comments").value;
 
-console.log(rating);
-console.log(issue);
-console.log(comments);
-console.log(mobile);
+    const mobile =
+        document.getElementById("mobile").value;
 
+    fetch(
+        trackerUrl +
+        "?rating=" + encodeURIComponent(rating) +
+        "&issue=" + encodeURIComponent(issue) +
+        "&comments=" + encodeURIComponent(comments) +
+        "&mobile=" + encodeURIComponent(mobile),
+        { mode: "no-cors" }
+    );
+
+    alert("Thank you for your feedback!");
+
+    window.location.href = "index.html";
 }
 
 </script>
