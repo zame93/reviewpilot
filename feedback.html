@@ -1,1 +1,34 @@
+<h2>How can we improve?</h2>
 
+<select id="issue">
+  <option>Food Quality</option>
+  <option>Service Delay</option>
+  <option>Missing Order</option>
+  <option>Incorrect Order</option>
+  <option>Staff Behaviour</option>
+  <option>Cleanliness</option>
+  <option>Other</option>
+</select>
+
+<textarea
+  id="comments"
+  placeholder="Tell us what happened">
+</textarea>
+
+<input
+  id="mobile"
+  placeholder="Mobile Number (Optional)">
+
+<button onclick="submitFeedback()">
+  Submit Feedback
+</button>
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const rating = params.get("rating");
+
+async function submitFeedback() {
+
+}
+
+</script>
