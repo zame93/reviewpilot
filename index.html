@@ -167,17 +167,6 @@ const reviewUrl = "https://share.google/vzGgHviaoZLhTGFOl";
 const trackerUrl =
 "https://script.google.com/macros/s/AKfycbxbP8KXs5asASmq76L9Gs2mo3u1JOhQo4KEIocwIJR1Fj5xpfqkMwXmC3DJg9xmSw8/exec";
 
-const formBase =
-"https://docs.google.com/forms/d/e/1FAIpQLScIPgdQQQrjHUmPQ7EuKMWms8BAzNHqNS64lL6NDsL54VWNpw/viewform?usp=pp_url&entry.1376820106=";
-
-const ratings = {
-    1: "%E2%AD%90+Very+Poor",
-    2: "%E2%AD%90%E2%AD%90+Poor",
-    3: "%E2%AD%90%E2%AD%90%E2%AD%90+Fair",
-    4: "%E2%AD%90%E2%AD%90%E2%AD%90%E2%AD%90+Good",
-    5: "%E2%AD%90%E2%AD%90%E2%AD%90%E2%AD%90%E2%AD%90+Excellent"
-};
-
 function rate(rating){document.querySelectorAll(".star").forEach((star,index)=>{
 
     if(index < rating){
