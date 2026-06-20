@@ -38,6 +38,17 @@ async function submitFeedback() {
     const mobile =
         document.getElementById("mobile").value;
 
+    async function submitFeedback() {
+
+    const issue =
+        document.getElementById("issue").value;
+
+    const comments =
+        document.getElementById("comments").value;
+
+    const mobile =
+        document.getElementById("mobile").value;
+
     fetch(
         trackerUrl +
         "?rating=" + encodeURIComponent(rating) +
@@ -45,11 +56,13 @@ async function submitFeedback() {
         "&comments=" + encodeURIComponent(comments) +
         "&mobile=" + encodeURIComponent(mobile),
         { mode: "no-cors" }
-    );
+    ).finally(() => {
 
-    alert("Thank you for your feedback!");
+        alert("Thank you for your feedback!");
 
-    window.location.href = "index.html";
+        window.location.href = "index.html";
+
+    });
+
 }
-
 </script>
