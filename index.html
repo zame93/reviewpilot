@@ -194,18 +194,6 @@ labels[rating];
 
     if(rating >= 4){
 
-        fetch(
-            ...
-        ).finally(() => {
-
-            window.location.href =
-                "thankyou.html?rating=" + rating;
-
-        });
-
-        return;
-    }
-
     fetch(
         trackerUrl +
         "?rating=" +
@@ -214,13 +202,12 @@ labels[rating];
     ).finally(() => {
 
         window.location.href =
-            "feedback.html?rating=" + rating;
+            "thankyou.html?rating=" + rating;
 
     });
 
-},700);   // closes setTimeout
-
-}          // closes rate
+    return;
+}
 
 fetch(
     trackerUrl +
@@ -233,6 +220,9 @@ fetch(
         "feedback.html?rating=" + rating;
 
 });
+
+},700);
+
 }
 </script>
 
