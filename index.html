@@ -216,17 +216,24 @@ labels[rating];
         { mode: "no-cors" }
     ).finally(() => {
 
-        window.location.href = "thankyou.html";
+        window.location.href = "thankyou.html?rating=" + rating;
 
     });
 
     return;
 }
-        window.location.href = formBase + ratings[rating];
 
-    },700);
+fetch(
+    trackerUrl +
+    "?rating=" +
+    encodeURIComponent(labels[rating]),
+    { mode: "no-cors" }
+).finally(() => {
 
-}
+    window.location.href =
+        "feedback.html?rating=" + rating;
+
+});
 
 </script>
 
