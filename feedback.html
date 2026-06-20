@@ -28,6 +28,19 @@ const params = new URLSearchParams(window.location.search);
 const rating = params.get("rating");
 
 async function submitFeedback() {
+  const issue =
+  document.getElementById("issue").value;
+
+const comments =
+  document.getElementById("comments").value;
+
+const mobile =
+  document.getElementById("mobile").value;
+
+console.log(rating);
+console.log(issue);
+console.log(comments);
+console.log(mobile);
 
 }
 
