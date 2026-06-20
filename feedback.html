@@ -41,6 +41,13 @@ async function submitFeedback() {
 
     const mobile =
         document.getElementById("mobile").value;
+  console.log(
+trackerUrl +
+"?rating=" + encodeURIComponent(rating) +
+"&issue=" + encodeURIComponent(issue) +
+"&comments=" + encodeURIComponent(comments) +
+"&mobile=" + encodeURIComponent(mobile)
+);
 
     fetch(
         trackerUrl +
