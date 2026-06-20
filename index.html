@@ -192,25 +192,35 @@ labels[rating];
 
     setTimeout(function(){
 
-        if(rating >= 4){
+    if(rating >= 4){
+
+        fetch(
+            ...
+        ).finally(() => {
+
+            window.location.href =
+                "thankyou.html?rating=" + rating;
+
+        });
+
+        return;
+    }
 
     fetch(
         trackerUrl +
         "?rating=" +
-        encodeURIComponent(
-            rating === 5
-            ? "⭐⭐⭐⭐⭐ Excellent"
-            : "⭐⭐⭐⭐ Good"
-        ),
+        encodeURIComponent(labels[rating]),
         { mode: "no-cors" }
     ).finally(() => {
 
-        window.location.href = "thankyou.html?rating=" + rating;
+        window.location.href =
+            "feedback.html?rating=" + rating;
 
     });
 
-    return;
-}
+},700);   // closes setTimeout
+
+}          // closes rate
 
 fetch(
     trackerUrl +
