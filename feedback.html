@@ -22,23 +22,16 @@
 <button onclick="submitFeedback()">
   Submit Feedback
 </button>
+
 <script>
 
 const params = new URLSearchParams(window.location.search);
 const rating = params.get("rating");
 
+const trackerUrl =
+"https://script.google.com/macros/s/AKfycbxbP8KXs5asASmq76L9Gs2mo3u1JOhQo4KEIocwIJR1Fj5xpfqkMwXmC3DJg9xmSw8/exec";
+
 async function submitFeedback() {
-
-    const issue =
-        document.getElementById("issue").value;
-
-    const comments =
-        document.getElementById("comments").value;
-
-    const mobile =
-        document.getElementById("mobile").value;
-
-    async function submitFeedback() {
 
     const issue =
         document.getElementById("issue").value;
@@ -65,4 +58,5 @@ async function submitFeedback() {
     });
 
 }
+
 </script>
